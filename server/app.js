@@ -5,10 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./router/index');
+var users = require('./router/routes/users');
 
-var startTale = require('./routes/start-tale');
 var app = express();
 
 // uncomment after placing your favicon in /public
@@ -45,8 +44,7 @@ if (app.get('env') === 'production') {
 
     app.use(express.static(path.join(__dirname, '/dist')));
 
-    // production error handler
-    // no stacktraces leaked to user
+    // Error Handling
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
@@ -56,6 +54,6 @@ if (app.get('env') === 'production') {
     });
 }
 
-app.use('/start-tale', startTale);
+var router = require('./router') (app);
 
 module.exports = app;
