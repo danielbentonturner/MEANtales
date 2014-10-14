@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var startTale = require('./routes/start-tale');
 var app = express();
 
 // uncomment after placing your favicon in /public
@@ -22,7 +23,7 @@ app.use(cookieParser());
  
 
 if (app.get('env') === 'development') {
-    
+
     app.use(express.static(path.join(__dirname, '../client')));
     app.use(express.static(path.join(__dirname, '../client/.tmp')));
     app.use(express.static(path.join(__dirname, '../client/app')));
@@ -55,5 +56,6 @@ if (app.get('env') === 'production') {
     });
 }
 
+app.use('/start-tale', startTale);
 
 module.exports = app;
