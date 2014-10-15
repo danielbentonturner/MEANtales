@@ -1,23 +1,41 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
-</div>
+<div class="tale-container">
+  <div class="col-md-12">
+    <h3 class="tale-header">Begin a new Tale!</h3>
+    <hr>
+    <br>
+  </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+  <div class="tale-form">
+    
+    <form class="form-horizontal">
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="userName">Name</label>  
+      <div class="col-md-5">
+      <input id="userName" name="userName" ng-model="tale.user.userName" type="text" placeholder="Philip J. Fry" class="form-control input-md">
+        
+      </div>
+    </div>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="email">Email</label>  
+      <div class="col-md-5">
+      <input id="email" name="email" ng-model="tale.user.email" type="text" placeholder="fry@planet-express.com" class="form-control input-md">
+        
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="tale"></label>
+      <div class="col-md-5">
+        <button ng-click="tale.submit()" id="tale" name="tale" class="btn btn-success btn-block">Start your Tale!</button>
+      </div>
+    </div>
+
+    </form>
+  </div>
+
 </div>

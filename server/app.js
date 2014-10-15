@@ -1,12 +1,17 @@
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
-var favicon = require('serve-favicon');
+var flash = require('connect-flash');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./router/index');
-var users = require('./router/routes/users');
+// var routes = require('./routes/index');
+// var users = require('./routes/users');
+var tale = require('./routes/tale');
+// var tale = require('./routes/tale');
+// var tale = require('./routes/tale');
+// var tale = require('./routes/tale');
 
 var app = express();
 
@@ -16,6 +21,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({secret: 'i like pie',
+                saveUninitialized: false,
+                resave: false}));
+app.use(flash());
 
 
 // Development Settings
@@ -23,18 +32,10 @@ app.use(cookieParser());
 
 if (app.get('env') === 'development') {
 
-    app.use(express.static(path.join(__dirname, '../client')));
-    app.use(express.static(path.join(__dirname, '../client/.tmp')));
-    app.use(express.static(path.join(__dirname, '../client/app')));
+  app.use(express.static(path.join(__dirname, '../client')));
+  app.use(express.static(path.join(__dirname, '../client/.tmp')));
+  app.use(express.static(path.join(__dirname, '../client/app')));
 
-    // Error Handling
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
 }
 
 
@@ -42,18 +43,15 @@ if (app.get('env') === 'development') {
 
 if (app.get('env') === 'production') {
 
-    app.use(express.static(path.join(__dirname, '/dist')));
+  app.use(express.static(path.join(__dirname, '/dist')));
 
-    // Error Handling
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: {}
-        });
-    });
 }
 
-var router = require('./router') (app);
+// Error Handling
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+});
+
+app.use('/main', tale);
 
 module.exports = app;

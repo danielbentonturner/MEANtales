@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('clientApp', [
+  .module('MEANtales', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -19,19 +19,15 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/main', {
         templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        controller: 'taleCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .when('/start-tale', {
-        templateUrl: 'views/start-tale.html',
-        controller: 'StartTaleCtrl'
+      .when('/question-1', {
+        templateUrl: 'views/q1.html',
+        controller: 'taleCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/main'
       });
   });
