@@ -1,0 +1,47 @@
+<div class="tale-container">
+  <div class="col-md-12">
+    <h3 class="tale-header">Hello, {{ user.userName }}! Just a few questions for you!</h3>
+    <hr>
+    <br>
+  </div>
+
+  <div class="tale-form">
+    
+    <form class="form-horizontal">
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="friendName">What is the name of your best friend?</label>  
+      <div class="col-md-5">
+      <input id="friendName" name="friendName" ng-model="user.friendName" type="text" placeholder="Bender" class="form-control input-md">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="loveName">What is the name of the love of your life?</label>  
+      <div class="col-md-5">
+      <input id="loveName" name="loveName" ng-model="user.loveName" type="text" placeholder="Leela" class="form-control input-md">
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="petName">What is the name of your favorite pet?</label>  
+      <div class="col-md-5">
+      <input id="petName" name="petName" ng-model="user.petName" type="text" placeholder="Nibbler" class="form-control input-md">
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="tale"></label>
+      <div class="col-md-5">
+        <button ng-click="submitQuestionOne()" id="tale" name="tale" class="btn btn-success btn-block">Submit your Answers!</button>
+      </div>
+    </div>
+
+    </form>
+  </div>
+
+</div>

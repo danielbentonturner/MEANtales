@@ -5,7 +5,12 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
     userName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    profile: {} // for extra information you may / may not want
+    friendName: { type: String },
+    loveName: { type: String },
+    petName: { type: String },
+    choiceOne: {},
+    choiceTwo: {},
+    myTale: {}
 });
 
 // A method that's called every time a user document is saved..

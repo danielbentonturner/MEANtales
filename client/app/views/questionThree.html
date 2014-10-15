@@ -1,0 +1,31 @@
+<div class="tale-container">
+  <div class="col-md-12">
+    <h3 class="tale-header">Last question, {{ user.userName }}!</h3>
+    <hr>
+    <br>
+  </div>
+
+  <div class="tale-form">
+    
+    <form class="form-horizontal">
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="choiceTwo">Enter a number between 1 and 10.</label>  
+      <div class="col-md-5">
+      <input id="choiceTwo" name="choiceTwo" ng-model="user.choiceTwo" type="text" placeholder="Enter your lucky number!" class="form-control input-md">
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="tale"></label>
+      <div class="col-md-5">
+        <button ng-click="submitQuestionThree()" id="tale" name="tale" class="btn btn-success btn-block">Tell me a MEAN tale!</button>
+      </div>
+    </div>
+
+    </form>
+  </div>
+
+</div>

@@ -1,0 +1,37 @@
+<div class="tale-container">
+  <div class="col-md-12">
+    <h3 class="tale-header">Almost there, {{ user.userName }}! Just a few more questions for you!</h3>
+    <hr>
+    <br>
+  </div>
+
+  <div class="tale-form">
+    
+    <form class="form-horizontal">
+
+    <!-- Radio-->
+    <div class="form-group">
+      <div class="col-md-12">
+        <label class="col-md-12" for="themeChoice">
+          <input id="themeChoice" name="themeChoice" ng-model="user.choiceOne" type="radio" value="optionA" class="input-md">
+          Do you prefer adventuring out in space, dealing with hostile robots and aliens races, and generally getting kicked around?
+        </label>
+        <label class="col-md-12" for="themeChoice">
+          <input id="themeChoice" name="themeChoice" ng-model="user.choiceOne" type="radio" value="optionB" class="input-md">
+          Or, do you prefer sitting on Earth, dealing with hostile robots and aliens races, and generally getting kicked around?
+        </label> 
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="tale"></label>
+      <div class="col-md-5">
+        <button ng-click="submitQuestionTwo()" id="tale" name="tale" class="btn btn-success btn-block">Submit your Choice!</button>
+      </div>
+    </div>
+
+    </form>
+  </div>
+
+</div>

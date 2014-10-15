@@ -23,11 +23,26 @@ angular
         templateUrl: 'views/main.html',
         controller: 'taleCtrl'
       })
-      .when('/question-1', {
-        templateUrl: 'views/q1.html',
+      .when('/questionOne', {
+        templateUrl: 'views/questionOne.html',
+        controller: 'taleCtrl'
+      })
+      .when('/questionTwo', {
+        templateUrl: 'views/questionTwo.html',
+        controller: 'taleCtrl'
+      })
+      .when('/questionThree', {
+        templateUrl: 'views/questionThree.html',
+        controller: 'taleCtrl'
+      })
+      .when('/myTale', {
+        templateUrl: 'views/myTale.html',
         controller: 'taleCtrl'
       })
       .otherwise({
         redirectTo: '/main'
       });
+  })
+  .service('userService', function () {
+    this.user = {};
   });

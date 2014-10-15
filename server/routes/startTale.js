@@ -4,7 +4,7 @@ var router = express.Router();
 var db = require('../database');
 var Users = db.users;
 
-// POST from tale
+// POST from main
 router.post('/', function (req, res) {
 
   var userData = req.body;
@@ -21,12 +21,12 @@ router.post('/', function (req, res) {
 
     if (err) {
 
-        // Nice log message on your end, so that you can see what happened
+        // Error handling
         console.log("Couldn't create new user: " + userData.email + ', because of: ' + err);
 
         // send the error
         res.status(500).json({
-            'message': 'Internal server error while reating new user.'
+            'message': 'Internal server error while creating new user.'
         });
     }
 
@@ -53,11 +53,11 @@ router.post('/', function (req, res) {
 
       });
     }
-    // Error if user exists
+    // Continue if user exists
     else {
         console.log('User already exists');
-        res.status(409).json({
-            'message': 'The e-mail, ' + userData.email + ' has already been used!'
+        res.status(201).json({
+            'message': 'User found, using ' + userData.email + ' for the email.'
         });
     }
   });

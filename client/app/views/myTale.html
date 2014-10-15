@@ -1,0 +1,30 @@
+<div class="tale-container">
+  <div class="col-md-12">
+    <h3 class="tale-header">Read thy tale, O {{ user.userName }}, and weep at its beauty!</h3>
+    <hr>
+    <br>
+  </div>
+
+  <div class="tale-form">
+    
+    <form class="form-horizontal">
+
+    <!-- Text input-->
+    <div class="form-group">
+      <div class="col-md-12">
+        <span>{{ user.myTale }}</span>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="tale"></label>
+      <div class="col-md-12">
+        <button ng-click="submitMyTale()" id="tale" name="tale" class="btn btn-success btn-block">Well. That's...a thing, I guess. Save and e-mail it to me, I suppose.</button>
+      </div>
+    </div>
+
+    </form>
+  </div>
+
+</div>
